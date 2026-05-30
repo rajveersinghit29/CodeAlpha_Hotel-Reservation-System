@@ -82,12 +82,19 @@ function renderRooms(rooms) {
         card.style.animationDelay = `${index * 0.1}s`;
         
         let typeClass = 'type-standard';
-        if(room.type === 'DELUXE') typeClass = 'type-deluxe';
-        if(room.type === 'SUITE') typeClass = 'type-suite';
+        let imgSrc = 'assets/standard.png';
+        if(room.type === 'DELUXE') {
+            typeClass = 'type-deluxe';
+            imgSrc = 'assets/deluxe.png';
+        }
+        if(room.type === 'SUITE') {
+            typeClass = 'type-suite';
+            imgSrc = 'assets/suite.png';
+        }
 
         card.innerHTML = `
             <div class="h-40 w-full rounded-lg overflow-hidden bg-surface-container-high mb-2">
-                <img src="https://picsum.photos/seed/${room.roomId}/400/200" alt="Room ${room.roomNumber}" class="w-full h-full object-cover"/>
+                <img src="${imgSrc}" alt="Room ${room.roomNumber}" class="w-full h-full object-cover"/>
             </div>
             <div class="flex justify-between items-start mt-2">
                 <span class="grade-chip ${typeClass}">${room.type} CLASS</span>
