@@ -82,14 +82,12 @@ function renderRooms(rooms) {
         card.style.animationDelay = `${index * 0.1}s`;
         
         let typeClass = 'type-standard';
-        let imgSrc = 'assets/standard.png';
+        let imgSrc = `assets/${room.roomId}.png`;
         if(room.type === 'DELUXE') {
             typeClass = 'type-deluxe';
-            imgSrc = 'assets/deluxe.png';
         }
         if(room.type === 'SUITE') {
             typeClass = 'type-suite';
-            imgSrc = 'assets/suite.png';
         }
 
         card.innerHTML = `
